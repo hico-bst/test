@@ -21,6 +21,23 @@ var btn = document.getElementById('button');
 var div = document.getElementById('div'   );
 var din = document.getElementById('div-in');
 var ovr = document.getElementById('mausov');
+
+function move( e ){
+	//console.log(e);
+	var dom = document.getElementById('mover');
+	
+	if( !dom ){
+		dom = document.createElement('div');
+		dom.id = 'mover';
+		dom.style.background = '#F00';
+		dom.style.position = 'absolute';
+		document.body.appendChild( dom );
+	}
+	
+	dom.style.top  = e.screenY + 'px';
+	dom.style.left = e.screenX + 'px';
+}
+
 btn.addEventListener( 'mousedown', function(){ console.log('button mousedown'); } );
 btn.addEventListener( 'click',     function(){ console.log('button click'    ); } );
 btn.addEventListener( 'touchend',  function(){ console.log('button touchend' ); } );
@@ -34,7 +51,7 @@ din.addEventListener( 'click',     function(){ console.log('inline click'    ); 
 din.addEventListener( 'touchend',  function(){ console.log('inline touchend' ); } );
 
 ovr.addEventListener( 'mouseover',  function(){ console.log('mouse mouseover' ); } );
-ovr.addEventListener( 'mousemove',  function(){ console.log('mouse mousemove' ); } );
+ovr.addEventListener( 'mousemove',  function(e){ console.log('mouse mousemove' ); move(e);} );
 ovr.addEventListener( 'mousedown',  function(){ console.log('mouse mousedown' ); } );
 ovr.addEventListener( 'click',      function(){ console.log('mouse click'     ); } );
 ovr.addEventListener( 'touchend',   function(){ console.log('mouse touchend'  ); } );
