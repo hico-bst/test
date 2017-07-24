@@ -14,12 +14,14 @@ div, button {
 <button id="button">Button</button>
 <div    id="div"   >div   </div   >
 <div    id="div-in">div-in</div   >
+<div    id="double">double</div   >
 <div    id="mausov">mausmv</div   >
 
 <script>
 var btn = document.getElementById('button');
 var div = document.getElementById('div'   );
 var din = document.getElementById('div-in');
+var dbl = document.getElementById('double');
 var ovr = document.getElementById('mausov');
 
 function move( e ){
@@ -38,21 +40,34 @@ function move( e ){
 	dom.style.left = e.screenX + 'px';
 }
 
-btn.addEventListener( 'mousedown', function(){ console.log('button mousedown'); } );
-btn.addEventListener( 'click',     function(){ console.log('button click'    ); } );
-btn.addEventListener( 'touchend',  function(){ console.log('button touchend' ); } );
+function log(msg){
+	var time = new Date;
+	var timestamp = time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds() + ' | ';
+	console.log(timestamp + msg);
+}
 
-div.addEventListener( 'mousedown', function(){ console.log('div mousedown'); } );
-div.addEventListener( 'click',     function(){ console.log('div click'    ); } );
-div.addEventListener( 'touchend',  function(){ console.log('div touchend' ); } );
+btn.addEventListener( 'mousedown', function(){ log('button mousedown'); } );
+btn.addEventListener( 'click',     function(){ log('button click'    ); } );
+btn.addEventListener( 'touchend',  function(){ log('button touchend' ); } );
 
-din.addEventListener( 'mousedown', function(){ console.log('inline mousedown'); } );
-din.addEventListener( 'click',     function(){ console.log('inline click'    ); } );
-din.addEventListener( 'touchend',  function(){ console.log('inline touchend' ); } );
+div.addEventListener( 'mousedown', function(){ log('div mousedown'); } );
+div.addEventListener( 'click',     function(){ log('div click'    ); } );
+div.addEventListener( 'touchend',  function(){ log('div touchend' ); } );
 
-ovr.addEventListener( 'mouseover',  function(){ console.log('mouse mouseover' ); } );
-ovr.addEventListener( 'mousemove',  function(e){ console.log('mouse mousemove' ); move(e);} );
-ovr.addEventListener( 'mousedown',  function(){ console.log('mouse mousedown' ); } );
-ovr.addEventListener( 'click',      function(){ console.log('mouse click'     ); } );
-ovr.addEventListener( 'touchend',   function(){ console.log('mouse touchend'  ); } );
+din.addEventListener( 'mousedown', function(){ log('inline mousedown'); } );
+din.addEventListener( 'click',     function(){ log('inline click'    ); } );
+din.addEventListener( 'touchend',  function(){ log('inline touchend' ); } );
+
+dbl.addEventListener( 'mouseover',  function(){  log('double mouseover' ); } );
+dbl.addEventListener( 'mousemove',  function(e){ log('double mousemove' ); move(e);} );
+dbl.addEventListener( 'mousedown',  function(){  log('double mousedown' ); } );
+dbl.addEventListener( 'click',      function(){  log('double click'     ); } );
+dbl.addEventListener( 'touchend',   function(){  log('double touchend'  ); } );
+dbl.addEventListener( 'dblclick',   function(){  log('double dblclick'  ); } );
+
+ovr.addEventListener( 'mouseover',  function(){  log('mouse mouseover' ); } );
+ovr.addEventListener( 'mousemove',  function(e){ log('mouse mousemove' ); move(e);} );
+ovr.addEventListener( 'mousedown',  function(){  log('mouse mousedown' ); } );
+ovr.addEventListener( 'click',      function(){  log('mouse click'     ); } );
+ovr.addEventListener( 'touchend',   function(){  log('mouse touchend'  ); } );
 </script>
