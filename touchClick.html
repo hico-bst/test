@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<title>touch click</title>
+
+<button id="button">Hello World</button>
+
+<script>
+var doc = document.body;
+var btn = document.getElementById('button');
+btn.addEventListener( 'mousedown', function(){ console.log('button mousedown'); } );
+btn.addEventListener( 'click',     function(){ console.log('button click'    ); } );
+btn.addEventListener( 'touchend',  function(){ console.log('button touchend' ); } );
+doc.addEventListener( 'mousedown', function(){ console.log('body mousedown'  ); } );
+doc.addEventListener( 'click',     function(){ console.log('body click'      ); } );
+doc.addEventListener( 'touchend',  function(){ console.log('body touchend'   ); } );
+</script>
