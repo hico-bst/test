@@ -2,16 +2,31 @@
 
 <meta charset="utf-8">
 <title>touch click</title>
+<style>
+div, button {
+	background: #EEE;
+	padding: 20px;
+}
+#div-in { display: inline-block; }
+</style>
 
-<button id="button">Hello World</button>
+<button id="button">Button</button>
+<div    id="div"   >div   </div   >
+<div    id="div-in">div-in</div   >
 
 <script>
-var doc = document.body;
 var btn = document.getElementById('button');
+var div = document.getElementById('div'   );
+var din = document.getElementById('div-in');
 btn.addEventListener( 'mousedown', function(){ console.log('button mousedown'); } );
 btn.addEventListener( 'click',     function(){ console.log('button click'    ); } );
 btn.addEventListener( 'touchend',  function(){ console.log('button touchend' ); } );
-doc.addEventListener( 'mousedown', function(){ console.log('body mousedown'  ); } );
-doc.addEventListener( 'click',     function(){ console.log('body click'      ); } );
-doc.addEventListener( 'touchend',  function(){ console.log('body touchend'   ); } );
+
+div.addEventListener( 'mousedown', function(){ console.log('div mousedown'); } );
+div.addEventListener( 'click',     function(){ console.log('div click'    ); } );
+div.addEventListener( 'touchend',  function(){ console.log('div touchend' ); } );
+
+din.addEventListener( 'mousedown', function(){ console.log('inline mousedown'); } );
+din.addEventListener( 'click',     function(){ console.log('inline click'    ); } );
+din.addEventListener( 'touchend',  function(){ console.log('inline touchend' ); } );
 </script>
