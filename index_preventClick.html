@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<title>CKTest</title>
+<script src="ckeditor/ckeditor.js"></script>
+
+<div id="preventClick">
+	<div id="editor" contenteditable="true">Hello World</div>
+</div>
+
+<script>
+var x = document.getElementById('preventClick');
+x.onmousedown = function(e){
+	e.preventDefault();
+	console.log('click prevented');
+}
+//CKEDITOR.disableAutoInline = true;
+//var x = CKEDITOR.replace( document.getElementsByClassName('editor')[0] );
+//x.resize( 200, 100 );
+
+/*
+var $editors = document.getElementsByClassName('editor');
+for( var i = 0; i < $editors.length; ++i ){
+	CKEDITOR.inline( $editors[i] );
+}
+*/
+</script>
