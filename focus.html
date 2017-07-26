@@ -23,7 +23,9 @@ btn.onclick = function(){
 	input.type = 'text';
 	input.value = 'Event';
 	document.getElementById('input').appendChild( input );
-	input.focus();
+	setTimeout(function(){
+		input.focus();
+	}, 1000);
 };
 
 var ckbtn = document.getElementById('ckbtn');
