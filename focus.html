@@ -5,7 +5,7 @@
 <script src="ckeditor/ckeditor.js"></script>
 <style>
 body { min-height: 100vh; margin: 0; }
-#ckeditor{ display: block; }
+#editDiv { display: block; }
 </style>
 
 <h1>1</h1>
@@ -13,7 +13,7 @@ body { min-height: 100vh; margin: 0; }
 <input id="in" type="text" value="Input">
 <br>
 <button id="ckbtn">Klick</button>
-<div id="ckeditor" contenteditable>CKEditor</div>
+<div id="editDiv" contenteditable>CKEditor</div>
 
 <script>
 var btn = document.getElementById('btn');
@@ -21,8 +21,15 @@ var input = document.getElementById('in');
 btn.onclick = function(){ input.focus(); };
 
 var ckbtn = document.getElementById('ckbtn');
-var ckeditor = document.getElementById('ckeditor');
-ckbtn.onclick = function(){ ckeditor.focus(); };
+var editDiv = document.getElementById('editDiv');
+ckbtn.onclick = function(){ ckfocus(); };
 
-//CKEDITOR.inline( ckeditor );
+var editor = CKEDITOR.inline( editDiv );
+function ckfocus(){
+	editor.focus();
+	var range = editor.createRange();
+	range.moveToElementEditEnd(range.root);
+	editor.getSelection().selectRanges([range]);
+}
+
 </script>
