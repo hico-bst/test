@@ -2,16 +2,27 @@
 
 <meta charset="utf-8">
 <title>touch click</title>
+<script src="ckeditor/ckeditor.js"></script>
 <style>
+body { min-height: 100vh; margin: 0; }
+#ckeditor{ display: block; }
 </style>
 
 <h1>1</h1>
 <button id="btn">Klick</button>
 <input id="in" type="text" value="Input">
+<br>
+<button id="ckbtn">Klick</button>
+<div id="ckeditor" contenteditable>CKEditor</div>
 
 <script>
 var btn = document.getElementById('btn');
 var input = document.getElementById('in');
 btn.onclick = function(){ input.focus(); };
-	
+
+var ckbtn = document.getElementById('ckbtn');
+var ckeditor = document.getElementById('ckeditor');
+ckbtn.onclick = function(){ ckeditor.focus(); };
+
+//CKEDITOR.inline( ckeditor );
 </script>
