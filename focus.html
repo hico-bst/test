@@ -10,7 +10,7 @@ body { min-height: 100vh; margin: 0; }
 
 <h1>1</h1>
 <button id="btn">Klick</button>
-<input id="in" type="text" value="Input">
+<div id="input"></div>
 <br>
 <button id="ckbtn">Klick</button>
 <div id="editDiv" contenteditable>CKEditor</div>
@@ -18,7 +18,13 @@ body { min-height: 100vh; margin: 0; }
 <script>
 var btn = document.getElementById('btn');
 var input = document.getElementById('in');
-btn.onclick = function(){ input.focus(); };
+btn.onclick = function(){
+	var input = document.createElement('input');
+	input.type = 'text';
+	input.value = 'Event';
+	document.getElementById('input').appendChild( input );
+	input.focus();
+};
 
 var ckbtn = document.getElementById('ckbtn');
 var editDiv = document.getElementById('editDiv');
@@ -33,6 +39,6 @@ function ckfocus(){
 }
 
 
-btn.click();
+//btn.click();
 
 </script>
